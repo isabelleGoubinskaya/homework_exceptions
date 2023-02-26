@@ -1,4 +1,4 @@
-public class Car<D extends CarDriver> {
+public class Car<D extends CarDriver> extends Trucks {
     private String transmission;
     private String bodyType;
     private String registrationNumber;
@@ -18,8 +18,22 @@ public class Car<D extends CarDriver> {
         this.hasSummerTires = hasSummerTires;
     }
 
+    public Car(String toyota, String camry, String asList) {
+        super();
+    }
+
     public static String getModel() {
         return null;
+    }
+
+    @Override
+    public void race() {
+
+    }
+
+    @Override
+    public void printType() {
+
     }
 
     public void changeToWinterTires() {
@@ -80,6 +94,11 @@ public class Car<D extends CarDriver> {
         public String toString() {
             return "Body type: " + this.name() + ", Description: " + description;
         }
+
+        public void Service() {
+
+        }
     }
+
 
 }

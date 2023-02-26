@@ -1,3 +1,4 @@
+import java.util.List;
 
 public abstract class Bus extends Transport implements Competitor{
     private int passengerCapacity;
@@ -7,6 +8,9 @@ public abstract class Bus extends Transport implements Competitor{
         super(mark, model, engineCapacity);
         this.passengerCapacity = passengerCapacity;
         this.fuelType = fuelType;
+    }
+
+    public Bus(String mci, String j4500, List<String> asList) {
     }
 
     @Override

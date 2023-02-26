@@ -1,12 +1,17 @@
+import java.util.List;
+
 public abstract class Trucks extends Transport implements Competitor{
     private String mark;
     private static String model;
     private double engineCapacity;
 
-    public Trucks(String mark, String model, double engineCapacity, Driver<TruckLicenseC> driver2) {
+    public Trucks() {
         this.mark = mark;
         this.model = model;
         this.engineCapacity = engineCapacity;
+    }
+
+    public Trucks(String volvo, String fh, List<String> asList) {
     }
 
     public void pitStop() {
@@ -63,6 +68,9 @@ public abstract class Trucks extends Transport implements Competitor{
         @Override
         public String toString() {
             return payloadDescription;
+        }
+        public void Service() {
+
         }
     }
 
