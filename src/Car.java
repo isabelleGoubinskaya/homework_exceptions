@@ -9,7 +9,7 @@ public class Car<D extends CarDriver> {
     private String model;
     private String mark;
 
-    public <CarLicenseB> Car(String mark, String model, double engineCapacity, Driver<CarLicenseB> driver1, D driver) {
+    public <CarLicenseB> Car(String mark, String model, double engineCapacity) {
         super();
         this.transmission = transmission;
         this.bodyType = bodyType;
@@ -53,6 +53,14 @@ public class Car<D extends CarDriver> {
 
     public void setTireType(String tireType) {
         this.tireType = tireType;
+    }
+
+    public String getDriverName() {
+        return null;
+    }
+
+    public String getBrand() {
+        return null;
     }
 
     public enum CarBodyType {
