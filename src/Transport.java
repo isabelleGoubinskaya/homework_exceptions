@@ -1,14 +1,18 @@
+import java.util.List;
+
 public abstract class Transport<D extends Driver<C>, C> implements Competitor {
     private String mark;
     private static String model;
     private double engineCapacity;
     private D driver;
+    private List<Mechanic> mechanics;
 
     public Transport(String mark, String model, double engineCapacity, D driver) {
         this.mark = mark;
         this.model = model;
         this.engineCapacity = engineCapacity;
         this.driver = driver;
+        this.mechanics = mechanics;
     }
 
     public Transport(String mark, String model, double engineCapacity) {
@@ -88,5 +92,22 @@ public abstract class Transport<D extends Driver<C>, C> implements Competitor {
 
     protected String getTypeString() {
         return type != null ? type.toString() : "Insufficient vehicle data";
+    }
+    public void Service() {
+
+    }
+
+    public void setMaintenanceDone(boolean b) {
+    }
+    public void setMechanics(List<Mechanic> mechanics) {
+        this.mechanics = mechanics;
+    }
+
+    public Mechanic[] getMechanics() {
+        return new Mechanic[0];
+    }
+
+    public String getNumber() {
+        return null;
     }
 }
