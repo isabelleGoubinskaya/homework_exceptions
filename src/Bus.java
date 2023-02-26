@@ -3,7 +3,7 @@ public abstract class Bus extends Transport implements Competitor{
     private int passengerCapacity;
     private String fuelType;
 
-    public Bus(String mark, String model, double engineCapacity, Driver driver3) {
+    public Bus(String mark, String model, double engineCapacity, int driver3) {
         super(mark, model, engineCapacity);
         this.passengerCapacity = passengerCapacity;
         this.fuelType = fuelType;
@@ -22,6 +22,11 @@ public abstract class Bus extends Transport implements Competitor{
     @Override
     public void maximumSpeed() {
         System.out.println("Car maximum speed");
+    }
+
+    @Override
+    protected String getType() {
+        return null;
     }
 
     public int getPassengerCapacity() {
@@ -59,6 +64,9 @@ public abstract class Bus extends Transport implements Competitor{
 
         CapacityType(String description) {
             this.description = description;
+        }
+        public void passDiagnostics() throws TransportTypeException {
+            throw new TransportTypeException("Buses do not need to undergo diagnostics.");
         }
     }
 }

@@ -3,7 +3,7 @@ public abstract class Trucks extends Transport implements Competitor{
     private static String model;
     private double engineCapacity;
 
-    public Trucks(String mark, String model, double engineCapacity, Driver<TruckLicenseC> driver2) {
+    public Trucks(String mark, String model) {
         this.mark = mark;
         this.model = model;
         this.engineCapacity = engineCapacity;
@@ -63,6 +63,14 @@ public abstract class Trucks extends Transport implements Competitor{
         @Override
         public String toString() {
             return payloadDescription;
+        }
+
+        public void passDiagnostics() throws TransportTypeException {
+            System.out.println("The " + this.getType() + " truck has passed diagnostics.");
+        }
+
+        private String getType() {
+            return null;
         }
     }
 
