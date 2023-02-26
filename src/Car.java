@@ -9,7 +9,7 @@ public class Car<D extends CarDriver> {
     private String model;
     private String mark;
 
-    public <CarLicenseB> Car(String mark, String model, double engineCapacity, Driver<CarLicenseB> driver1, D driver) {
+    public <CarLicenseB> Car(String mark, String model, double engineCapacity) {
         super();
         this.transmission = transmission;
         this.bodyType = bodyType;
@@ -20,6 +20,9 @@ public class Car<D extends CarDriver> {
 
     public static String getModel() {
         return null;
+    }
+
+    public static void passDiagnostics() {
     }
 
     public void changeToWinterTires() {
@@ -67,6 +70,7 @@ public class Car<D extends CarDriver> {
         MINIVAN("Minivan");
 
         private String description;
+        private String type;
 
         CarBodyType(String description) {
             this.description = description;
@@ -79,6 +83,14 @@ public class Car<D extends CarDriver> {
         @Override
         public String toString() {
             return "Body type: " + this.name() + ", Description: " + description;
+        }
+
+        public void passDiagnostics() throws TransportTypeException {
+            System.out.println("The " + this.getType() + " car has passed diagnostics.");
+        }
+
+        public String getType() {
+            return type;
         }
     }
 

@@ -9,6 +9,9 @@ public abstract class Driver<C> {
         this.experience = experience;
     }
 
+    public Driver(String name) {
+    }
+
     public String getName() {
         return name;
     }

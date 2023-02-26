@@ -1,58 +1,45 @@
-import jdk.internal.jimage.BasicImageReader;
-
 public class Main {
     public static void main(String[] args) {
-
-        Driver driver1 =new Driver("Sergei", true, 3) {
+        Car car = new Car("Toyota", "Camry", 2.5);
+        Transport truck = new Trucks("Mercedes-Benz", "Actros") {
             @Override
-            public void start() {
+            public void race() {
 
             }
 
             @Override
-            public void stop() {
+            public void printType() {
 
             }
 
             @Override
-            public void fillUp() {
+            protected String getType() {
+                return null;
+            }
+        };
+        Transport bus = new Bus("Scania", "Touring", 10, 80) {
+            @Override
+            public void race() {
+
+            }
+
+            @Override
+            public void printType() {
+
+            }
+
+            @Override
+            public void openDoor() {
 
             }
         };
-        System.out.println("Driver " + driver1.getName() + " drives car " + Car.getModel() + " and will participate in the race.");
-        Driver driver2 = new Driver("Misha", true, 5) {
-            @Override
-            public void start() {
 
-            }
-
-            @Override
-            public void stop() {
-
-            }
-
-            @Override
-            public void fillUp() {
-
-            }
-        };
-        System.out.println("Driver " + driver2.getName() + " drives truck " + Trucks.getModel() + " and will participate in the race.");
-        Driver driver3 = new Driver("anna", true, 5) {
-            @Override
-            public void start() {
-
-            }
-
-            @Override
-            public void stop() {
-
-            }
-
-            @Override
-            public void fillUp() {
-
-            }
-        };
-        System.out.println("Driver " + driver3.getName() + " drives bus " + Bus.getModel() + " and will participate in the race.");
+        try {
+            car.passDiagnostics();
+            truck.passDiagnostics();
+            bus.passDiagnostics();
+        } catch (TransportTypeException e) {
+            System.out.println(e.getMessage());
+        }
     }
 }

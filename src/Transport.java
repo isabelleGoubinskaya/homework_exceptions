@@ -89,4 +89,17 @@ public abstract class Transport<D extends Driver<C>, C> implements Competitor {
     protected String getTypeString() {
         return type != null ? type.toString() : "Insufficient vehicle data";
     }
+
+    public void passDiagnostics() throws TransportTypeException {
+        if (this instanceof Trucks) {
+            System.out.println("The " + this.getType() + " has passed diagnostics.");
+        } else if (this instanceof Bus) {
+            throw new TransportTypeException("Buses do not need to undergo diagnostics.");
+        } else {
+            throw new TransportTypeException("Unknown transport type.");
+        }
+    }
+
+    protected abstract String getType();
+
 }
