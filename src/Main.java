@@ -56,6 +56,7 @@ public class Main {
 
             }
         };
+        System.out.println("Driver " + driver3.getName() + " drives bus " + Bus.getModel() + " and will participate in the race.");
         Set<String> drivers = new HashSet<>();
 
         drivers.add("John Smith");
