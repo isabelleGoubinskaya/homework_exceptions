@@ -1,7 +1,11 @@
 import jdk.internal.jimage.BasicImageReader;
 
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+
 public class Main {
-    public static void main(String[] args) {
+    public static <Mechanic> void main(String[] args) {
 
         Driver driver1 =new Driver("Sergei", true, 3) {
             @Override
@@ -54,5 +58,6 @@ public class Main {
             }
         };
         System.out.println("Driver " + driver3.getName() + " drives bus " + Bus.getModel() + " and will participate in the race.");
+        Map<Transport, List<Mechanic>> carMechanicsMap = new HashMap<>();
     }
 }

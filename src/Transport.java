@@ -1,8 +1,13 @@
+import java.util.Objects;
+
 public abstract class Transport<D extends Driver<C>, C> implements Competitor {
     private String mark;
     private static String model;
     private double engineCapacity;
     private D driver;
+    private String brand;
+
+    private String registrationNumber;
 
     public Transport(String mark, String model, double engineCapacity, D driver) {
         this.mark = mark;
@@ -89,4 +94,36 @@ public abstract class Transport<D extends Driver<C>, C> implements Competitor {
     protected String getTypeString() {
         return type != null ? type.toString() : "Insufficient vehicle data";
     }
+
+
+    @Override
+    public boolean equals(Object obj) {
+        if (obj == null) {
+            return false;
+        }
+        if (getClass() != obj.getClass()) {
+            return false;
+        }
+        final Transport other = (Transport) obj;
+        if (!Objects.equals(this.brand, other.brand)) {
+            return false;
+        }
+        if (!Objects.equals(this.model, other.model)) {
+            return false;
+        }
+        if (!Objects.equals(this.registrationNumber, other.registrationNumber)) {
+            return false;
+        }
+        return true;
+    }
+
+    @Override
+    public int hashCode() {
+        int hash = 5;
+        hash = 53 * hash + Objects.hashCode(this.brand);
+        hash = 53 * hash + Objects.hashCode(this.model);
+        hash = 53 * hash + Objects.hashCode(this.registrationNumber);
+        return hash;
+    }
+
 }
