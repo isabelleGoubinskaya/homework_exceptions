@@ -3,7 +3,7 @@ public abstract class Bus extends Transport implements Competitor{
     private int passengerCapacity;
     private String fuelType;
 
-    public Bus(String mark, String model, double engineCapacity, Driver driver3) {
+    public <C> Bus(String mark, String model, double engineCapacity, Driver<C> driver3) {
         super(mark, model, engineCapacity);
         this.passengerCapacity = passengerCapacity;
         this.fuelType = fuelType;

@@ -1,58 +1,23 @@
-import jdk.internal.jimage.BasicImageReader;
+import java.util.HashSet;
+import java.util.Iterator;
 
 public class Main {
-    public static void main(String[] args) {
+    public static <C> void main(String[] args) {
+        HashSet<Driver<C>> drivers = new HashSet<>();
 
-        Driver driver1 =new Driver("Sergei", true, 3) {
-            @Override
-            public void start() {
+        Driver<C> driver1 = new Driver<C>("John Smith", 35, "ABC123");
+        Driver<C> driver2 = new Driver<C>("Jane Doe", 27, "XYZ456");
+        Driver<C> driver3 = new Driver<C>("John Smith", 35, "ABC123");
 
-            }
+        drivers.add(driver1);
+        drivers.add(driver2);
+        drivers.add(driver3);
 
-            @Override
-            public void stop() {
+        Iterator<Driver<C>> iterator = drivers.iterator();
 
-            }
-
-            @Override
-            public void fillUp() {
-
-            }
-        };
-        System.out.println("Driver " + driver1.getName() + " drives car " + Car.getModel() + " and will participate in the race.");
-        Driver driver2 = new Driver("Misha", true, 5) {
-            @Override
-            public void start() {
-
-            }
-
-            @Override
-            public void stop() {
-
-            }
-
-            @Override
-            public void fillUp() {
-
-            }
-        };
-        System.out.println("Driver " + driver2.getName() + " drives truck " + Trucks.getModel() + " and will participate in the race.");
-        Driver driver3 = new Driver("anna", true, 5) {
-            @Override
-            public void start() {
-
-            }
-
-            @Override
-            public void stop() {
-
-            }
-
-            @Override
-            public void fillUp() {
-
-            }
-        };
-        System.out.println("Driver " + driver3.getName() + " drives bus " + Bus.getModel() + " and will participate in the race.");
+        while (iterator.hasNext()) {
+            Driver<C> driver = iterator.next();
+            System.out.println(driver.getName() + ", " + driver.getAge() + ", " + driver.getLicenseNumber());
+        }
     }
 }
