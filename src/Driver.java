@@ -1,94 +1,32 @@
-public abstract class Driver<C> {
-    private String name;
-    private String hasLicense;
-    private int experience;
+import java.util.Objects;
 
-    public Driver(String name, boolean hasLicense, int experience) {
+public class Driver {
+    private String name;
+    private int age;
+
+    public Driver(String name, int age) {
         this.name = name;
-        this.hasLicense = String.valueOf(hasLicense);
-        this.experience = experience;
+        this.age = age;
     }
 
     public String getName() {
         return name;
     }
 
-    public String hasLicense() {
-        return hasLicense;
-    }
-
-    public int getExperience() {
-        return experience;
-    }
-
-    public abstract void start();
-
-    public abstract void stop();
-
-    public abstract void fillUp();
-
-}
-
-
-class BCatDriver<C> extends Driver<C> {
-    public BCatDriver(String name, int experience) {
-        super(name, Boolean.parseBoolean(String.valueOf(true)), experience);
+    public int getAge() {
+        return age;
     }
 
     @Override
-    public void start() {
-        System.out.println("Starting passenger car driver " + getName());
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Driver driver = (Driver) o;
+        return age == driver.age && Objects.equals(name, driver.name);
     }
 
     @Override
-    public void stop() {
-        System.out.println("Stopping passenger car driver " + getName());
-    }
-
-    @Override
-    public void fillUp() {
-        System.out.println("Filling up passenger car driver " + getName());
-    }
-}
-
-class CCatDriver<C> extends Driver<C> {
-    public CCatDriver(String name, int experience) {
-        super(name, Boolean.parseBoolean(String.valueOf(true)), experience);
-    }
-
-    @Override
-    public void start() {
-        System.out.println("Starting truck driver " + getName());
-    }
-
-    @Override
-    public void stop() {
-        System.out.println("Stopping truck driver " + getName());
-    }
-
-    @Override
-    public void fillUp() {
-        System.out.println("Filling up truck driver " + getName());
-    }
-}
-
-class DCatDriver<C> extends Driver<C> {
-    public DCatDriver(String name, int experience) {
-        super(name, Boolean.parseBoolean(String.valueOf(true)), experience);
-    }
-
-    @Override
-    public void start() {
-        System.out.println("Starting bus driver " + getName());
-    }
-
-    @Override
-    public void stop() {
-        System.out.println("Stopping bus driver " + getName());
-    }
-
-    @Override
-    public void fillUp() {
-        System.out.println("Filling up bus driver " + getName());
+    public int hashCode() {
+        return Objects.hash(name, age);
     }
 }
